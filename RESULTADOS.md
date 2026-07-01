@@ -2,74 +2,74 @@
 
 
 ## 📈 Resumen
-✅ 12 correctas de 18 queries
+✅ 12 correctas de 19 queries
 
 ## ✅ Query 1: Correcto
 
-⏱ Tiempo: 0.32 ms
+⏱ Tiempo: 0.38 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.21 ms
+⏱ Tiempo: 0.26 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.24 ms
+⏱ Tiempo: 0.28 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.22 ms
+⏱ Tiempo: 0.27 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 5: Correcto
 
-⏱ Tiempo: 0.23 ms
+⏱ Tiempo: 0.30 ms
 ✅ Se usó índice(s) en la consulta: id_grado
 
 ---
 
 ## ✅ Query 6: Correcto
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.35 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY,id_departamento, PRIMARY
 
 ---
 
 ## ✅ Query 7: Correcto
 
-⏱ Tiempo: 0.45 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,nif, PRIMARY,id_asignatura,id_curso_escolar
+⏱ Tiempo: 0.48 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, PRIMARY,id_asignatura,id_curso_escolar, PRIMARY
 
 ---
 
 ## ✅ Query 8: Correcto
 
-⏱ Tiempo: 0.44 ms
+⏱ Tiempo: 0.48 ms
 ✅ Se usó índice(s) en la consulta: id_profesor,id_grado, PRIMARY,id_departamento, PRIMARY
 
 ---
 
 ## ✅ Query 9: Correcto
 
-⏱ Tiempo: 0.29 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_curso_escolar
+⏱ Tiempo: 0.31 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,id_curso_escolar, PRIMARY
 
 ---
 
 ## ✅ Query 10: Correcto
 
-⏱ Tiempo: 0.32 ms
+⏱ Tiempo: 0.34 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY
 
 ---
@@ -83,7 +83,7 @@
 
 ## ✅ Query 12: Correcto
 
-⏱ Tiempo: 0.25 ms
+⏱ Tiempo: 0.29 ms
 ✅ Se usó índice(s) en la consulta: id_departamento
 
 ---
@@ -169,7 +169,7 @@
 +83.00 | Técnicas instrumentales avanzadas
 ```
 
-⏱ Tiempo: 0.28 ms
+⏱ Tiempo: 0.29 ms
 ✅ Se usó índice(s) en la consulta: id_profesor
 
 ---
@@ -246,7 +246,7 @@
 +12.00
 ```
 
-⏱ Tiempo: 0.24 ms
+⏱ Tiempo: 0.25 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -266,30 +266,46 @@
 -Filología
 -Derecho
 -Biología y Geología
-+id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo | tipo
-+4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H | alumno
++total
++12.00
 ```
 
-⏱ Tiempo: 0.27 ms
+⏱ Tiempo: 0.24 ms
 🔍 No se usó ningún índice en esta consulta.
-
-🚨 **Problemas detectados:**
-⚠️ Evitar `SELECT *`. Usar solo las columnas necesarias.
 
 ---
 
-## ❌ Query 16: Incorrecto
+## ❌ Query 16: Error
+- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '/*SELECT *
+FROM persona
+WHERE tipo = 'alumno' 
+ORDER BY fecha_nacimiento DESC
+LI' at line 1
+
+
+## ❌ Query 17: Error
+- **Descripción**: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*/
+-- 17. Calcula quants alumnes van néixer en 1999. (total)
+SELECT count(*) AS' at line 1
+
+
+## ❌ Query 18: Incorrecto
 ```diff
 --- 
 +++ 
-@@ -1,2 +1,2 @@
--total
--12.00
+@@ -1,7 +1,2 @@
+-departamento | total
+-Educación | 3.00
+-Informática | 2.00
+-Matemáticas | 2.00
+-Economía y Empresa | 2.00
+-Química y Física | 2.00
+-Agronomía | 1.00
 +id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo | tipo
 +4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H | alumno
 ```
 
-⏱ Tiempo: 0.22 ms
+⏱ Tiempo: 0.29 ms
 🔍 No se usó ningún índice en esta consulta.
 
 🚨 **Problemas detectados:**
@@ -297,25 +313,6 @@
 
 ---
 
-## ❌ Query 17: Incorrecto
-```diff
---- 
-+++ 
-@@ -1,2 +1,2 @@
--total
--2.00
-+id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo | tipo
-+4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H | alumno
-```
-
-⏱ Tiempo: 0.23 ms
-🔍 No se usó ningún índice en esta consulta.
-
-🚨 **Problemas detectados:**
-⚠️ Evitar `SELECT *`. Usar solo las columnas necesarias.
-
----
-
-## ❌ Query 18: Error
+## ❌ Query 19: Error
 - **Descripción**: 'NoneType' object is not iterable
 
