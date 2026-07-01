@@ -13,21 +13,21 @@
 
 ## ✅ Query 2: Correcto
 
-⏱ Tiempo: 0.34 ms
+⏱ Tiempo: 0.31 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 3: Correcto
 
-⏱ Tiempo: 0.35 ms
+⏱ Tiempo: 0.31 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
 
 ## ✅ Query 4: Correcto
 
-⏱ Tiempo: 0.39 ms
+⏱ Tiempo: 0.33 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -41,29 +41,29 @@
 
 ## ✅ Query 6: Correcto
 
-⏱ Tiempo: 0.41 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_departamento
+⏱ Tiempo: 0.38 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,id_departamento, PRIMARY
 
 ---
 
 ## ✅ Query 7: Correcto
 
-⏱ Tiempo: 0.53 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_asignatura,id_curso_escolar, PRIMARY,nif
+⏱ Tiempo: 0.50 ms
+✅ Se usó índice(s) en la consulta: PRIMARY,nif, PRIMARY,id_asignatura,id_curso_escolar, PRIMARY
 
 ---
 
 ## ✅ Query 8: Correcto
 
-⏱ Tiempo: 0.51 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_departamento, id_profesor,id_grado
+⏱ Tiempo: 0.52 ms
+✅ Se usó índice(s) en la consulta: id_profesor,id_grado, PRIMARY,id_departamento, PRIMARY
 
 ---
 
 ## ✅ Query 9: Correcto
 
 ⏱ Tiempo: 0.36 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, PRIMARY,id_curso_escolar
+✅ Se usó índice(s) en la consulta: PRIMARY,id_curso_escolar, PRIMARY
 
 ---
 
@@ -72,8 +72,7 @@
 --- 
 +++ 
 @@ -1,13 +1,13 @@
--departamento | apellido1 | apellido2 | nombre
-+nombre | apellido1 | apellido2 | nombre
+ departamento | apellido1 | apellido2 | nombre
  Agronomía | Monahan | Murray | Micaela
 +Economía y Empresa | Lemke | Rutherford | Cristina
  Economía y Empresa | Fahey | Considine | Antonio
@@ -93,7 +92,7 @@
 -Química y Física | Stiedemann | Morissette | Alfredo
 ```
 
-⏱ Tiempo: 0.38 ms
+⏱ Tiempo: 0.49 ms
 ✅ Se usó índice(s) en la consulta: PRIMARY
 
 ---
@@ -107,7 +106,7 @@
 
 ## ✅ Query 12: Correcto
 
-⏱ Tiempo: 0.30 ms
+⏱ Tiempo: 0.33 ms
 ✅ Se usó índice(s) en la consulta: id_departamento
 
 ---
@@ -133,14 +132,14 @@
  Schowalter | Muller | Francesca
 ```
 
-⏱ Tiempo: 0.37 ms
-✅ Se usó índice(s) en la consulta: PRIMARY, id_profesor
+⏱ Tiempo: 0.34 ms
+✅ Se usó índice(s) en la consulta: id_profesor, PRIMARY
 
 ---
 
 ## ✅ Query 14: Correcto
 
-⏱ Tiempo: 0.28 ms
+⏱ Tiempo: 0.30 ms
 ✅ Se usó índice(s) en la consulta: id_profesor
 
 ---
@@ -179,7 +178,7 @@
 +2.00
 ```
 
-⏱ Tiempo: 0.26 ms
+⏱ Tiempo: 0.29 ms
 🔍 No se usó ningún índice en esta consulta.
 
 ---
@@ -191,12 +190,15 @@
 @@ -1,2 +1,2 @@
 -total
 -2.00
-+id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo
-+4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H
++id | nif | nombre | apellido1 | apellido2 | ciudad | direccion | telefono | fecha_nacimiento | sexo | tipo
++4.00 | 17105885A | Pedro | Heller | Pagac | Almería | C/ Estrella fugaz | NULL | 2000-10-05 | H | alumno
 ```
 
-⏱ Tiempo: 0.37 ms
+⏱ Tiempo: 0.34 ms
 🔍 No se usó ningún índice en esta consulta.
+
+🚨 **Problemas detectados:**
+⚠️ Evitar `SELECT *`. Usar solo las columnas necesarias.
 
 ---
 
