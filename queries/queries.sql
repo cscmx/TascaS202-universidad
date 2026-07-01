@@ -83,8 +83,11 @@ LEFT JOIN profesor pr ON pr.id_departamento = d.id
 WHERE pr.id_departamento IS NULL;
 
 -- 13. Retorna un llistat amb els professors/es que no imparteixen cap assignatura. (apellido1, apellido2, nombre)
-
-
+SELECT p.apellido1, p.apellido2, p.nombre
+FROM persona p
+LEFT JOIN profesor pr ON pr.id_profesor = p.id
+LEFT JOIN asignatura a ON a.id_profesor = pr.id_profesor
+WHERE p.tipo = 'profesor' AND a.id_profesor IS NULL;
 
 -- 14. Retorna un llistat amb les assignatures que no tenen un professor/a assignat. (id, nombre)
 SELECT a.id, a.nombre
@@ -102,12 +105,6 @@ FROM persona
 WHERE tipo = 'alumno';
 
 
-/*SELECT *
-FROM persona
-WHERE tipo = 'alumno' 
-ORDER BY fecha_nacimiento DESC
-LIMIT 1;
-*/
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
 SELECT count(*) AS total
 FROM persona
