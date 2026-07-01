@@ -92,15 +92,16 @@ FROM asignatura a
 WHERE a.id_profesor IS NULL;
 
 -- 15. Retorna un llistat amb tots els departaments que no han impartit assignatures en cap curs escolar. (nombre)
-
 SELECT count(*) AS total
 FROM persona
 WHERE tipo = 'profesor'; 
 
 -- 16. Retorna el nombre total d'alumnes que hi ha. (total)
-SELECT count(*) AS total
+SELECT *
 FROM persona
-WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
+WHERE tipo = 'alumno' 
+ORDER BY fecha_nacimiento DESC
+LIMIT 1;
 
 -- 17. Calcula quants alumnes van néixer en 1999. (total)
 SELECT *
